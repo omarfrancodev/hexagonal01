@@ -1,9 +1,13 @@
 import { Note } from "./Note";
 
-export interface NoteGeBytIdRepository {
-    getById(noteId: string): Promise<Note | null>;
+export interface NoteGetByIdRepository {
+  getById(noteId: string): Promise<Note | null>;
 }
 
-export interface SendNoteRepository {
-    send(title: string, body: string): Promise<void>;
+export interface CreateNoteRepository {
+  createNote(note: Note): Promise<Note | null>;
+}
+
+export interface NoteGetAllRepository {
+  getAll(): Promise<Note[] | null>;
 }
