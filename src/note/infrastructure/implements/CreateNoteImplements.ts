@@ -5,7 +5,7 @@ import { pool } from "../db-connection";
 export class CreateNoteImplements implements CreateNoteRepository {
   async createNote(note: Note): Promise<Note | null> {
     const sql =
-      "INSERT INTO notes (title, body) VALUES ($1, $1) RETURNING *";
+      "INSERT INTO notes (title, body) VALUES ($1, $2) RETURNING *";
     const values = [note.title, note.body];
     try {
       const result = await pool.query(sql, values);
