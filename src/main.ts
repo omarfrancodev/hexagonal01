@@ -1,4 +1,5 @@
 import express from "express";
+import bodyParser from "body-parser";
 
 import { noteRouter } from "./note/infrastructure/NotesRouter";
 import { userRouter } from "./user/infrastructure/UserRouter";
@@ -9,6 +10,7 @@ const app = express();
 
 db.createTable();
 
+app.use(bodyParser.json());
 app.use("/users", userRouter);
 app.use("/notes", noteRouter);
 
