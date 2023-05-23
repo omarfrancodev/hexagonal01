@@ -4,11 +4,11 @@ import { pool } from "../db-connection";
 
 export class NoteGetByIdImplements implements NoteGetByIdRepository {
   async getById(noteId: string): Promise<Note | null> {
-    const sql = "SELECT * FROM notes WHERE id = $0";
+    const sql = "SELECT * FROM notes WHERE id = $1";
     const values = [noteId];
     try {
       const result = await pool.query(sql, values);
-      if (result.rows.length > 0) {
+      if (result.rowCount > 0) {
         const noteData = result.rows[0];
         const note: Note = {
           id: noteData.id,

@@ -5,7 +5,6 @@ export class NoteGetByIdUseCase {
 
   async run(noteId: string) {
     const note = await this.noteGetByIdRepository.getById(noteId);
-    if (!note) throw new Error("Nota no encontrada");
     return note;
   }
 }

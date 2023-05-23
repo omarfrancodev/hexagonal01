@@ -7,12 +7,8 @@ export class NoteGetbyIdController {
 
   async run(req: Request, res: Response) {
     const noteId = req.params.id;
-
-    try {
+    
       const note = await this.noteById.run(noteId);
       res.status(200).json(note);
-    } catch (error) {
-      res.status(500).json(error);
-    }
   }
 }
