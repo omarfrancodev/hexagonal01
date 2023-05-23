@@ -1,6 +1,6 @@
 export class Note {
   constructor(
-    readonly id: string,
+    readonly id: number,
     readonly title: string,
     readonly body: string
   ) {}

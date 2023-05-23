@@ -10,7 +10,7 @@ export class CreateNoteController {
     const noteContent = req.body;
 
     const note = await this.createNoteUseCase.run(
-      new Note("0", noteContent.title, noteContent.body)
+      new Note(0, noteContent.title, noteContent.body)
     );
     res.status(201).json(note);
   }

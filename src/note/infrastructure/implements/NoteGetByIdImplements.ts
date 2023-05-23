@@ -3,7 +3,7 @@ import { NoteGetByIdRepository } from "../../domain/NoteRepository";
 import { pool } from "../db-connection";
 
 export class NoteGetByIdImplements implements NoteGetByIdRepository {
-  async getById(noteId: string): Promise<Note | null> {
+  async getById(noteId: number): Promise<Note | null> {
     const sql = "SELECT * FROM notes WHERE id = $1";
     const values = [noteId];
     try {

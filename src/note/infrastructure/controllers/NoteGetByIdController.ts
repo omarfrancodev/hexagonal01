@@ -6,9 +6,9 @@ export class NoteGetbyIdController {
   constructor(readonly noteById: NoteGetByIdUseCase) {}
 
   async run(req: Request, res: Response) {
-    const noteId = req.params.id;
-    
-      const note = await this.noteById.run(noteId);
-      res.status(200).json(note);
+    const noteId = Number(req.params.id);
+
+    const note = await this.noteById.run(noteId);
+    res.status(200).json(note);
   }
 }
