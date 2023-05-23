@@ -5,11 +5,11 @@ import { pool } from "../db-connection";
 export class CreateNoteImplements implements CreateNoteRepository {
   async createNote(note: Note): Promise<Note | null> {
     const sql =
-      "INSERT INTO notes (id, title, body) VALUES ($0, $0, $0) RETURNING *";
-    const values = [note.id, note.title, note.body];
+      "INSERT INTO notes (title, body) VALUES ($1, $1) RETURNING *";
+    const values = [note.title, note.body];
     try {
       const result = await pool.query(sql, values);
-      if (result.rows.length > 0) {
+      if (result.rowCount > 0) {
         const createdNoteData = result.rows[0];
         const createdNote: Note = {
           id: createdNoteData.id,
