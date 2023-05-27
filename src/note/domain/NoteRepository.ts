@@ -11,3 +11,11 @@ export interface CreateNoteRepository {
 export interface NoteGetAllRepository {
   getAll(): Promise<Note[] | null>;
 }
+
+export interface NoteDeleteRepository {
+  deleteNote(noteId: number): Promise<String | null>;
+}
+
+export interface NoteUpdateRepository {
+  updateNote(note: Note): Promise<Note | null>;
+}

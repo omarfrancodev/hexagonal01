@@ -4,8 +4,8 @@ const config = {
   host: "localhost",
   port: 5432,
   user: "postgres",
-  database: "notes",
-  password: "omar_2803",
+  database: "nodejs-soa",
+  password: "PassAlanGG",
 };
 
 export const pool = new Pool(config);
