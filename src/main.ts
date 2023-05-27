@@ -11,6 +11,9 @@ const app = express();
 db.createTable();
 
 app.use(bodyParser.json());
+app.get('/', (request, response) => {
+  response.json({ info: 'Node.js, Express, and Postgres API from Node #' })
+})
 app.use("/users", userRouter);
 app.use("/notes", noteRouter);
 
